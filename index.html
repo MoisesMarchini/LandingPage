@@ -12,6 +12,7 @@
     <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js" defer></script>
 
     <script src="./js/index.js" defer></script>
+    <script src="./js/carousel.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,22 +27,24 @@
             <a href="index.html" class="nav__logo">
                 <h2>{MMP}</h2>
             </a>
-            <ul class="nav__menu active">
-                <li><a href="#home" class="btn">Início</a></li>
+            <ul class="nav__menu">
+                <li><a href="#home" class="btn active">Início</a></li>
                 <li><a href="#projects" class="btn">Projetos</a></li>
-                <li><a href="#about-me" class="btn">Sobre mim</a></li>
+                <li><a href="#about-me" class="btn">Sobre</a></li>
                 <li><a href="#contact" class="btn">Contato</a></li>
             </ul>
-            <button class="btn nav__toogle inactive">
-                <i class=" uil uil-bars " id="show"></i>
-                <i class="uil uil-times" id="hide"></i>
+            <button class="btn nav__toogle">
+                <div class="nav__toogle__icons">
+                    <i class="uil uil-bars " id="nav__show"></i>
+                    <i class="uil uil-times" id="nav__hide"></i>
+                </div>
             </button>
         </div>
     </nav>
 
     <main>
         <header>
-            <div class="container container__home" id="home">
+            <section class="container container__home" id="home">
                 <div class="home__left">
                     <div>
                         <h4>Bem vindo! Meu nome é</h4>
@@ -79,51 +82,40 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </section>
         </header>
         <img src="/imgs/waves-1.svg" class="waves order1">
-        <div class="container container__projects" id="projects">
+        <section class="container container__projects" id="projects">
             <div class="container__title">
                 <h1>Projetos</h1>
             </div>
-            <div class="block">
-                <div class="card">
-                    <h3>Projeto 1</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.</p>
-                </div>
-                <div class="card">
-                    <h3>Projeto 2</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.</p>
-                </div>
-                <div class="card">
-                    <h3>Projeto 3</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.</p>
+            <div class="carrousel-wrapper">
+                <div class="carrousel-arrow arrow-left "><i class="uil uil-angle-left-b"></i></div>
+                <div class="carrousel-arrow arrow-right "><i class="uil uil-angle-right-b"></i></div>
+                <div class="carrousel">
+                    <div class="carrousel__item current__item">
+                        <h3>Projeto 1</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's.</p>
+                    </div>
+                    <div class="carrousel__item">
+                        <h3>Projeto 2</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's.</p>
+                    </div>
+                    <div class="carrousel__item">
+                        <h3>Projeto 3</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <img src="/imgs/waves-2.svg" class="waves order2">
-        <div class="container container__aboutme" id="about-me">
+        <section class="container container__aboutme" id="about-me">
             <div class="container__title">
-                <h1>Sobre mim</h1>
+                <h1>Sobre</h1>
             </div>
             <div class="block">
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
@@ -150,10 +142,9 @@
                     passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
             </div>
-        </div>
-        </div>
+        </section>
         <img src="/imgs/waves-3.svg" class="waves order3">
-        <div class="container container__contact" id="contact">
+        <section class="container container__contact" id="contact">
             <div class="container__title">
                 <h1>Contato</h1>
             </div>
@@ -164,10 +155,10 @@
                 <a href="https://github.com/MoisesMarchini/" target="_blank" class="btn btn__contact btn-github"><i
                         class="uim uim-github-alt"></i>
                     GitHub</a>
-                <a href="#" target="_blank" class="btn btn__contact btn-gmail"><i class="uim uim-google"></i> E-mail</a>
+                <a href="#" target="_blank" class="btn btn__contact btn-gmail"><i class="uil uil-envelope"></i>
+                    E-mail</a>
             </div>
-        </div>
-        </div>
+        </section>
     </main>
     <footer>
         <p>Todos os direitos reservados - 2022</p>
