@@ -1,43 +1,36 @@
 :root {
-    --bgContentColor: #d8d8d8;
     --bgPageColor: #fafafa;
-    --bgNavColorActive: #362753;
     --bgNavColor: transparent;
     --shadowColor: rgba(0, 0, 0, 0.25);
-    --blackNavShadow: 0px 0px 4px 2px var(--shadowColor);
-    --whiteNavShadow: inset 0px -2px 0px 0px var(--bgNavColor);
-    --globalShadow: 0px 2px 2px 0px var(--shadowColor);
-    --bgMain: linear-gradient(#000000, #333333);
-    --fontNavColor: #ffffff;
-    --fontContentColor: #383838;
-    --buttonBgColor: #8a2c67;
-    --buttonTextColor: #fafafa;
-    --buttonIconColor: #fafafa;
-    --buttonIconHoverColor: #4437ff;
-    --mainColor1: #000000;
-    --mainColor2: #333333;
+    --blackShadow: 0px 0px 4px 2px var(--shadowColor);
+    --fontColor: #fafafa;
+    --appMainColor: #009473;
+    --appMainBackColor: #001220;
     --bgFooter: linear-gradient(#00000000, #00000073);
     --bgNav: linear-gradient(#00000073, #00000000);
-    --bgHomeColor: #F7770F;
-    --bgProjectsColor: #001220;
-    --bgAboutMe: #001220;
-    --bgContact: #0066ff;
+    --bgHomeColor: var(--appMainColor);
+    --bgProjectsColor: var(--appMainBackColor);
+    --bgAboutMe: var(--appMainBackColor);
+    --bgContact: var(--appMainColor);
     --bgCardColor: rgba(0, 0, 0, 0.315);
     --bgHoverCardColor: rgba(0, 0, 0, 0.678);
     --btnHoverBgColor: #fefefe;
     --btnHoverColor: #474747;
+    --paddingHorizontalLarge: 8%;
+    --paddingHorizontalMedium: 5%;
+    --paddingHorizontalSmall: 3%;
 }
 
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
+    text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
     font-weight: 400;
     scroll-behavior: smooth;
-    z-index: 1;
 }
 
 h1,
@@ -45,7 +38,7 @@ h2,
 h3,
 h4,
 p {
-    color: var(--fontNavColor);
+    color: var(--fontColor);
 }
 
 h1,
@@ -56,7 +49,8 @@ h4 {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+    line-height: 3.7rem;
 }
 
 h2 {
@@ -74,9 +68,14 @@ h4 {
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 var(--paddingHorizontalLarge);
     transition: 0.5s ease-in-out;
-    scroll-snap-align: start;
+}
+
+.waves {
+    min-height: 5rem;
+    position: absolute;
+    z-index: 0;
 }
 
 img {
@@ -84,22 +83,47 @@ img {
     object-fit: cover;
 }
 
-.waves {
-    position: absolute;
-    z-index: 0;
-}
-
-.btn a {
+.btn {
     font-size: 1.2em;
     font-weight: 400;
     padding: 5px 1rem;
-    color: var(--fontNavColor);
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--fontColor);
+    background-color: transparent;
+    border-radius: 20px;
+    color: var(--fontColor);
     transition: all 0.4s ease;
 }
 
-.btn a:hover {
-    background-color: var(--btnHoverBgColor);
-    color: var(--btnHoverColor);
+.nav__menu .btn {
+    border-color: transparent;
+    border-radius: 4px;
+}
+
+.btn:hover,
+.btn.active {
+    background-color: var(--fontColor);
+    border-color: transparent;
+    color: var(--appMainColor);
+}
+
+.inactive {
+    display: none;
+}
+
+.btn.nav__toogle {
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 7px;
+    font-size: 30px;
+    align-items: center;
+}
+
+.btn.nav__toogle i {
+    position: absolute;
 }
 
 nav {
@@ -110,21 +134,21 @@ nav {
     display: grid;
     place-items: center;
     position: fixed;
+    overflow: hidden;
     background: var(--bgNav);
-    box-shadow: var(--blackNavShadow);
+    box-shadow: var(--blackShadow);
     /*box-shadow: var(--blackNavShadow);*/
     backdrop-filter: blur(4px);
-    z-index: 2;
+    z-index: 5;
 }
 
 .container__nav {
-    padding: 0 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav__menu {
+.nav__menu.active {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -135,6 +159,10 @@ nav {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 1rem;
+}
+
+.nav__logo {
+    text-align: left;
 }
 
 main {
@@ -149,12 +177,17 @@ main {
 .container .block {
     width: 100%;
     height: 100%;
-    padding: 4vh 4vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 8vh;
+}
+
+.container__title {
+    padding: 8rem 0 3rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container .block::-webkit-scrollbar,
@@ -190,49 +223,55 @@ main::-webkit-scrollbar {
 .container h1,
 .container h2,
 .container h3 {
-    color: var(--bgPageColor);
+    color: var(--fontColor);
 }
 
-.container__home {
-    height: 90vh;
+header {
+    height: calc(100vh - 5rem);
     background-color: var(--bgHomeColor);
-    display: grid;
-    align-items: center;
-    grid-template-columns: 40% 60%;
-    padding: 8rem 0;
-
-}
-
-.container__home img {
-    height: 100%;
-    width: auto;
-}
-
-.home__left {
-    width: 100%;
-    align-items: stretch;
-    text-align: right;
-    font-weight: 600;
-}
-
-.home__right {
-    width: 100%;
-    height: 100%;
-    align-self: stretch;
+    position: relative;
+    display: flex;
+    place-items: center;
     overflow: hidden;
 }
 
-.container__title {
-    z-index: 1;
+.container__home {
+    height: 100%;
+    padding-top: 6rem;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20vh 0 0 0;
+    justify-content: center;
 }
 
-.container__aboutme .block {
-    grid-template-columns: repeat(auto-fit, minmax(70vw, 1fr));
-    gap: 2%;
+.home__left {
+    padding-left: 5vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.home__right {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 90%;
+    z-index: 0;
+}
+
+.home__blob {
+    position: absolute;
+    top: -70vh;
+    opacity: 80%;
+}
+
+.blob1 {
+    max-width: 600px;
+    left: 0;
+}
+
+.blob2 {
+    left: 10vw;
+    max-width: 800px;
 }
 
 .container__projects {
@@ -249,9 +288,30 @@ main::-webkit-scrollbar {
     background-color: var(--bgAboutMe);
 }
 
+.container__aboutme .block {
+    grid-template-columns: repeat(auto-fit, minmax(70vw, 1fr));
+    justify-content: center;
+    padding-bottom: 6rem;
+    gap: 2%;
+}
+
+
 .container__contact {
-    min-height: 70vh;
+    min-height: 40vh;
+    padding-bottom: 6rem;
     background-color: var(--bgContact);
+    justify-content: center;
+}
+
+.container__contact .block {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 12px;
+}
+
+.btn__contact {
+    max-width: max-content;
 }
 
 
@@ -260,6 +320,7 @@ footer {
     margin: 0 auto;
     padding: 1vh;
     display: flex;
+    justify-content: center;
     background: var(--bgFooter);
     bottom: 0;
     position: fixed;
@@ -268,4 +329,30 @@ footer {
 footer p {
     font-size: 0.8em;
     font-weight: 400;
+}
+
+nav::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 5rem;
+    width: 100%;
+    background: linear-gradient(to top, var(--appMainBackColor), transparent);
+    z-index: -10;
+}
+
+.home__right::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    height: 20rem;
+    width: 100%;
+    background: linear-gradient(to top, var(--bgHomeColor), transparent);
+    z-index: 2;
 }

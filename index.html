@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Moisés Marchini</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css" defer>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js" defer></script>
 
     <script src="./js/index.js" defer></script>
 
@@ -24,26 +26,61 @@
             <a href="index.html" class="nav__logo">
                 <h2>{MMP}</h2>
             </a>
-            <ul class="btn nav__menu">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#about-me">Sobre mim</a></li>
-                <li><a href="#contact">Contato</a></li>
+            <ul class="nav__menu active">
+                <li><a href="#home" class="btn">Início</a></li>
+                <li><a href="#projects" class="btn">Projetos</a></li>
+                <li><a href="#about-me" class="btn">Sobre mim</a></li>
+                <li><a href="#contact" class="btn">Contato</a></li>
             </ul>
+            <button class="btn nav__toogle inactive">
+                <i class=" uil uil-bars " id="show"></i>
+                <i class="uil uil-times" id="hide"></i>
+            </button>
         </div>
     </nav>
 
     <main>
-        <div class="container container__home" id="home">
-            <div class="home__left">
-                <h4>Bem vindo! Meu nome é</h4>
-                <h1>Moisés Marchini</h1>
-                <p>Sou desenvolvedor Full Stack</p>
+        <header>
+            <div class="container container__home" id="home">
+                <div class="home__left">
+                    <div>
+                        <h4>Bem vindo! Meu nome é</h4>
+                        <h1>Moisés Marchini</h1>
+                        <p>Sou desenvolvedor Full Stack</p>
+                    </div>
+                </div>
+                <div class="home__right">
+                    <div class="home__img">
+                        <svg class="home__blob blob1" id="visual" viewBox="0 0 900 900" width="900" height="900"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                            <g transform="translate(448.6754554271158 398.43409006456966)">
+                                <path fill="#001220">
+                                    <animate attributeName='d' dur='5s' repeatCount='indefinite'
+                                        values='
+                                        M148 -256.1C194.1 -229.8 235.2 -194.7 277.2 -150.5C319.2 -106.3 362.1 -53.2 371 5.2C380 63.5 355 127 322.6 187.9C290.3 248.8 250.7 307.1 195.7 350.4C140.7 393.6 70.3 421.8 11.7 401.5C-46.9 381.2 -93.8 312.4 -149.6 269.6C-205.5 226.9 -270.3 210.2 -310.7 169.6C-351.1 129 -367.1 64.5 -369.8 -1.6C-372.5 -67.7 -362.1 -135.3 -326.2 -183.8C-290.4 -232.3 -229.2 -261.7 -170.6 -280.7C-112 -299.7 -56 -308.3 -2.5 -304C51 -299.7 102 -282.3 148 -256.1; 
+                                        M195.3 -347C247 -308.5 278.5 -243.8 317.6 -181.5C356.7 -119.3 403.3 -59.7 414.7 6.6C426.2 72.8 402.3 145.7 363.1 207.6C323.8 269.5 269.2 320.5 206.1 332.3C143 344 71.5 316.5 8.6 301.6C-54.3 286.8 -108.7 284.5 -166.4 269.7C-224.1 254.9 -285.3 227.4 -331.3 180.4C-377.3 133.3 -408.1 66.7 -391 9.9C-373.8 -46.8 -308.6 -93.7 -258.8 -134.3C-209.1 -174.9 -174.9 -209.2 -134.3 -254.1C-93.8 -299.1 -46.9 -354.5 12.5 -376.1C71.8 -397.8 143.7 -385.5 195.3 -347; 
+                                        M166.3 -274.2C219 -257.7 267.6 -220.1 299.5 -170.9C331.4 -121.7 346.7 -60.8 337.9 -5.1C329.1 50.7 296.2 101.3 270.7 161.7C245.2 222 227.1 292 183.2 318.3C139.3 344.7 69.7 327.3 -2.7 332C-75 336.6 -150 363.1 -209.9 346.1C-269.8 329 -314.6 268.2 -348.6 203.3C-382.6 138.3 -405.8 69.2 -387.2 10.8C-368.6 -47.7 -308.1 -95.3 -272.9 -158.1C-237.6 -220.9 -227.6 -298.8 -186.3 -321.9C-145 -344.9 -72.5 -313.1 -7.8 -299.5C56.8 -285.9 113.7 -290.6 166.3 -274.2;
+                                        M148 -256.1C194.1 -229.8 235.2 -194.7 277.2 -150.5C319.2 -106.3 362.1 -53.2 371 5.2C380 63.5 355 127 322.6 187.9C290.3 248.8 250.7 307.1 195.7 350.4C140.7 393.6 70.3 421.8 11.7 401.5C-46.9 381.2 -93.8 312.4 -149.6 269.6C-205.5 226.9 -270.3 210.2 -310.7 169.6C-351.1 129 -367.1 64.5 -369.8 -1.6C-372.5 -67.7 -362.1 -135.3 -326.2 -183.8C-290.4 -232.3 -229.2 -261.7 -170.6 -280.7C-112 -299.7 -56 -308.3 -2.5 -304C51 -299.7 102 -282.3 148 -256.1; ' />
+                                </path>
+                            </g>
+                        </svg>
+                        <svg class="home__blob blob2" id="visual" viewBox="0 0 900 900" width="900" height="900"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                            <g transform="translate(448.6754554271158 398.43409006456966)">
+                                <path fill="#001220">
+                                    <animate attributeName='d' dur='6s' repeatCount='indefinite'
+                                        values='
+                                        M166.3 -274.2C219 -257.7 267.6 -220.1 299.5 -170.9C331.4 -121.7 346.7 -60.8 337.9 -5.1C329.1 50.7 296.2 101.3 270.7 161.7C245.2 222 227.1 292 183.2 318.3C139.3 344.7 69.7 327.3 -2.7 332C-75 336.6 -150 363.1 -209.9 346.1C-269.8 329 -314.6 268.2 -348.6 203.3C-382.6 138.3 -405.8 69.2 -387.2 10.8C-368.6 -47.7 -308.1 -95.3 -272.9 -158.1C-237.6 -220.9 -227.6 -298.8 -186.3 -321.9C-145 -344.9 -72.5 -313.1 -7.8 -299.5C56.8 -285.9 113.7 -290.6 166.3 -274.2;
+                                        M148 -256.1C194.1 -229.8 235.2 -194.7 277.2 -150.5C319.2 -106.3 362.1 -53.2 371 5.2C380 63.5 355 127 322.6 187.9C290.3 248.8 250.7 307.1 195.7 350.4C140.7 393.6 70.3 421.8 11.7 401.5C-46.9 381.2 -93.8 312.4 -149.6 269.6C-205.5 226.9 -270.3 210.2 -310.7 169.6C-351.1 129 -367.1 64.5 -369.8 -1.6C-372.5 -67.7 -362.1 -135.3 -326.2 -183.8C-290.4 -232.3 -229.2 -261.7 -170.6 -280.7C-112 -299.7 -56 -308.3 -2.5 -304C51 -299.7 102 -282.3 148 -256.1; 
+                                        M195.3 -347C247 -308.5 278.5 -243.8 317.6 -181.5C356.7 -119.3 403.3 -59.7 414.7 6.6C426.2 72.8 402.3 145.7 363.1 207.6C323.8 269.5 269.2 320.5 206.1 332.3C143 344 71.5 316.5 8.6 301.6C-54.3 286.8 -108.7 284.5 -166.4 269.7C-224.1 254.9 -285.3 227.4 -331.3 180.4C-377.3 133.3 -408.1 66.7 -391 9.9C-373.8 -46.8 -308.6 -93.7 -258.8 -134.3C-209.1 -174.9 -174.9 -209.2 -134.3 -254.1C-93.8 -299.1 -46.9 -354.5 12.5 -376.1C71.8 -397.8 143.7 -385.5 195.3 -347; 
+                                        M166.3 -274.2C219 -257.7 267.6 -220.1 299.5 -170.9C331.4 -121.7 346.7 -60.8 337.9 -5.1C329.1 50.7 296.2 101.3 270.7 161.7C245.2 222 227.1 292 183.2 318.3C139.3 344.7 69.7 327.3 -2.7 332C-75 336.6 -150 363.1 -209.9 346.1C-269.8 329 -314.6 268.2 -348.6 203.3C-382.6 138.3 -405.8 69.2 -387.2 10.8C-368.6 -47.7 -308.1 -95.3 -272.9 -158.1C-237.6 -220.9 -227.6 -298.8 -186.3 -321.9C-145 -344.9 -72.5 -313.1 -7.8 -299.5C56.8 -285.9 113.7 -290.6 166.3 -274.2;' />
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <div class="home__right">
-                <img src="./imgs/header-img.png">
-            </div>
-        </div>
+        </header>
         <img src="/imgs/waves-1.svg" class="waves order1">
         <div class="container container__projects" id="projects">
             <div class="container__title">
@@ -96,6 +133,7 @@
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
                     passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
+                <br>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                     been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                     galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -103,6 +141,7 @@
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
                     passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p>
+                <br>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                     been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                     galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -119,7 +158,13 @@
                 <h1>Contato</h1>
             </div>
             <div class="block">
-                <p>Aqui está um texto</p>
+                <a href="https://www.linkedin.com/in/moisesmarchinipereira/" target="_blank"
+                    class="btn btn__contact btn-linkedin"><i class="uim uim-linkedin-alt"></i>
+                    Linkedin</a>
+                <a href="https://github.com/MoisesMarchini/" target="_blank" class="btn btn__contact btn-github"><i
+                        class="uim uim-github-alt"></i>
+                    GitHub</a>
+                <a href="#" target="_blank" class="btn btn__contact btn-gmail"><i class="uim uim-google"></i> E-mail</a>
             </div>
         </div>
         </div>
